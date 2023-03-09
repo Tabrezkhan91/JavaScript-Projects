@@ -60,7 +60,7 @@ function displayTodos(){
     }
 }
 function createTodo(task){
-    todoArray.push(task.value)
+    todoArray.unshift(task.value)
     localStorage.setItem('todolist', JSON.stringify(todoArray))
     location.reload();
 }
@@ -69,7 +69,9 @@ function activateDeleteListener(){
     const deleteBtns = document.querySelectorAll('.deleteBtn')
     deleteBtns.forEach((db,i) => {
         db.addEventListener('click', ()=> {
+            confirm("Are you Sure ??")
             deleteTodo(i);
+            window.reload();
         })
     })
 }
